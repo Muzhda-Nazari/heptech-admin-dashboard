@@ -25,4 +25,4 @@ This internal tool allows technicians to create, manage and track jobs.
 
 Muzhda Nazari
 ### Adminpage
-![adminpage](admin.png)
+![adminpage](admin.jpg)
