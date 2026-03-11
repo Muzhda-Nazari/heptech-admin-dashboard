@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HepTech Admin — Job Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>HEPtech Job Tracker Dashboard</h1>
+      <p class="sub">Job Tracker — internal tool</p>
+    </div>
+
+    <div class="stats" id="stats">
+      <div class="stat"><span id="totalCount">0</span><small>Total</small></div>
+      <div class="stat"><span id="openCount">0</span><small>Open</small></div>
+      <div class="stat"><span id="doneCount">0</span><small>Completed</small></div>
+    </div>
+  </header>
+
+  <main class="layout">
+    <!-- LEFT: Create Job -->
+    <section class="card">
+      <h2>Create Job</h2>
+
+      <form id="jobForm" class="form">
+        <div class="grid">
+          <label>
+            Client
+            <input id="client" type="text" placeholder="Client Name" required />
+          </label>
+
+          <label>
+            Site / Address
+            <input id="site" type="text" placeholder="Site / Address" />
+          </label>
+
+          <label>
+            Job Type
+            <select id="jobType">
+              <option>Access Control</option>
+              <option>CCTV</option>
+              <option>Alarm</option>
+              <option>Intercom</option>
+              <option>Network / IT</option>
+              <option>Auto Door</option>
+              <option>Other</option>
+            </select>
+          </label>
+
+          <label>
+            Priority
+            <select id="priority">
+              <option value="Normal">Normal</option>
+              <option value="High">High</option>
+              <option value="Urgent">Urgent</option>
+            </select>
+          </label>
+
+          <label>
+            Due Date
+            <input id="dueDate" type="date" />
+          </label>
+
+          <label>
+            Status
+            <select id="status">
+              <option value="New">New</option>
+              <option value="In Progress">In Progress</option>
+              <option value="On Hold">On Hold</option>
+              <option value="Completed">Completed</option>
+            </select>
+          </label>
+        </div>
+
+        <label>
+          Notes
+          <textarea id="notes" rows="4" placeholder="Parts, wiring notes, contact person, etc."></textarea>
+        </label>
+
+        <label>
+          Attach Photos / Videos
+          <input id="attachments" type="file" multiple accept="image/*,video/*" />
+          <small class="hint">You can add multiple files (images/videos). Saved in browser (local).</small>
+        </label>
+
+        <div class="actions">
+          <button class="btn primary" type="submit">Add Job</button>
+          <button class="btn" type="button" id="clearAll">Clear All</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- RIGHT: Jobs List -->
+    <section class="card">
+      <div class="row">
+        <h2>Jobs</h2>
+
+        <div class="filters">
+          <input id="search" type="text" placeholder="Search client, site, notes..." />
+          <select id="filterStatus">
+            <option value="All">All Status</option>
+            <option value="New">New</option>
+            <option value="In Progress">In Progress</option>
+            <option value="On Hold">On Hold</option>
+            <option value="Completed">Completed</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="jobs" class="jobs"></div>
+      <p id="empty" class="empty">No jobs found.</p>
+    </section>
+  </main>
+
+  <script src="main.js"></script>
+
+ <footer style="
+text-align:center;
+margin-top:40px;
+padding:20px;
+color:#6b7280;
+font-size:14px;
+">
+HEPtech Job Tracker • Built with HTML, CSS & JavaScript
+</footer>
+</body>
+</html>
